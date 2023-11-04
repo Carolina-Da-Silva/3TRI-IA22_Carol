@@ -1,15 +1,32 @@
+import { useState } from "react"
 import "./App.css"
-import InputArea from "./InputArea"
+import Input from "./Input"
 import Message from "./Message"
 
+
 export default () => {
+  const [mensagens, setMensagem] = useState([
+    { self: true, date: "04:20 2020/12/12", user: "Você", text: "lorem ipsum" },
+    { self: false, date: "04:21 2020/12/12", user: "Carol", text: "lorem ipsum" },
+    { self: false, date: "04:22 2020/12/12", user: "Carol", text: "lorem ipsum" },
+    { self: true, date: "04:23 2020/12/12", user: "Você", text: "lorem ipsum" },
+  ])
+
   return <>
+    <header>
+        <div className="icone">
+          <img src="Imagens/pessoa_icone.png" />
+        </div>
+        <div className="icone_2">
+          <img src="Imagens/telefone.png" />
+          <img src="Imagens/pontinhos.png" />
+        </div>
+    </header>
     <main>
-      <Message self={true} date="16:42 2023/10/25" user="Dunha" text="lorem ipsun" />
-      <Message self={false} date="17:43 2022/10/25" user="Dunha" text="lorem ipsun" />
-      <Message self={false} date="18:44 2021/10/25" user="Dunha" text="lorem ipsun" />
-      <Message self={true} date="19:45 2020/10/25" user="Dunha" text="lorem ipsun" />
+      {mensagens.map(({ self, date, user, text }, index) =>
+        <Message self={self} date={date} user={user} text={text} key={index} />)
+      }
     </main>
-    <InputArea />
+    <Input setMensagem={setMensagem} mensagens={mensagens} />
   </>
 }

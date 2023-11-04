@@ -2,13 +2,29 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   margin: 0;
+  background-color: #c9c9c9;
+}
+
+header{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #dadada;
+  border-radius: 10px;
+}
+
+header div.icone img{
+  width: 40px;
+}
+
+header div.icone_2 img{
+  padding: 5px;
+  width: 40px;
 }
 
 main {
-  border: 2px solid salmon;
   height: 90vh;
   padding: 1.5rem;
   display: flex;
@@ -17,37 +33,50 @@ main {
   overflow: auto;
 }
 
-.input-area {
-  display: flex;
-  height: 10vh;
-}
-
-.input-area  textarea {
-  flex-grow: 1;
-}
-
 .message {
-  border: 2px solid green;
+  border-top: 30px solid rgb(13, 14, 66);
+  border-radius: 20px;
+  background-color: #dadada;
   width: 50%;
   padding: 1rem;
+  position: relative;
 }
 
 .message.self {
+  border-top: 30px solid rgb(45, 13, 66);
   align-self: flex-end;
-  background-color: lightgreen;
-} 
-
-.message.user{
-  background-color: black;
-  font-size: 8em;
-  color: white;
-  padding: 25em 1mm;
-  display: inline-block;
-  border-radius: 5px;
+  background-color:rgb(164, 148, 175);
 }
 
-.message.date {
-  font-size: .5em;
+.message .date {
+  font-size: .6em;
   padding: 0 .5em;
-  margin-block: 1em;
+  margin-block: 1rem;
+}
+.message .user {
+  position: absolute;
+  font-size: .8em;
+  color: white;
+  padding: .25em 1em;
+  display: inline-block;
+  border-radius: 5px;
+  
+}
+
+.input-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-area  textarea {
+  flex-grow: 0.99;
+  border: solid #c9c9c9 2px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.input-area button{
+  background-color: rgb(164, 148, 175);
+  border-radius: 5px;
+  padding: 10px;
 }
